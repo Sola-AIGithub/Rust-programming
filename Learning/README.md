@@ -1,6 +1,5 @@
-learn rust
----
->## 基礎環境建構與導覽程式
+Rust 基礎環境建構與導覽程式
+===
 >1. 環境安裝
 >    1. 使用rustup安裝rust
 >    2. 有新版本發布時可使用以下指令更新
@@ -19,7 +18,7 @@ learn rust
 >    $ cargo new hello
 >    ```
 >    這個指令會建立一個基礎專案，資料夾**hello**內會含以下檔案  
->    ![hello](README_image/hello資料夾內容.PNG "資料夾內容")
+>    ![hello](img/hello資料夾內容.PNG "資料夾內容")
 >   
 >    在資料夾**src**裡面有一個**main.rs**是我們的主程式碼
 >    ```rust
@@ -242,7 +241,7 @@ learn rust
 >        Serving on http://localhost:3000...
 >        ```  
 >    前往<b>http://localhost:3000</b>之後會呈現:  
->    ![actix-gcd](README_image/actix-gcd網頁1.PNG "actix-gcd網頁")
+>    ![actix-gcd](img/actix-gcd網頁1.PNG "actix-gcd網頁")
 >   
 >    7. 建立新路由處理網頁表單<b>POST</b>請求，首先在<b>actix-gcd/src/main.rs</b>加入新的<b>use</b>指令:  
 >        ```rust
@@ -295,11 +294,10 @@ learn rust
 >          Running `target\debug\actix-gcd.exe`
 >        Serving on http://localhost:3000...
 >        ```  
->    ![actix-gcd](README_image/actix-gcd網頁2.PNG "actix-gcd網頁")  
+>    ![actix-gcd](img/actix-gcd網頁2.PNG "actix-gcd網頁")  
 >   
-learn flutter
----
->## flutter_rust_bridge!簡易程式使用flutter和rust
+flutter_rust_bridge!簡易程式使用flutter和rust
+===
 >1. 環境安裝
 >    1. 需要安裝[Android studio](https://redirector.gvt1.com/edgedl/android/studio/install/2022.2.1.20/android-studio-2022.2.1.20-windows.exe "android-studio-2022.2.1.20-windows.exe")、[Java](https://www.oracle.com/java/technologies/downloads/#java8-windows "jdk-8u381-windows-x64.exe")、[Flutter](https://docs.flutter.dev/get-started/install "Flutter")   
 >    2. 檢查Java版本  
@@ -461,7 +459,7 @@ learn flutter
 >       √  Built build\app\outputs\flutter-apk\app-release.apk (20.8MB).
 >       ```  
 Reference
----
+===
 1.[MD手冊](https://hackmd.io/@eMP9zQQ0Qt6I8Uqp2Vqy6w/SyiOheL5N/%2FBVqowKshRH246Q7UDyodFA?type=book "link to tutorial")  
 2.[rustup](https://rustup.rs "安裝rustup環境")  
 3.[flutter_rust_bridge](https://cjycode.com/flutter_rust_bridge/index.html)  
