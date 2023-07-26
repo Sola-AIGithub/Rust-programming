@@ -79,6 +79,14 @@ Rust 基礎環境建構與導覽程式
 >    ```  
 >    #### ***use***  
 >    在Rust我們將標準函式庫稱做**trait**，類似python的package，我們需要將程式庫加入才可以使用裡面的函式進行開發  
+>    #### ***check***  
+>    Num traits裡面有`checked_add`、`checked_sub`、`checked_mul`、`checked_div`進行運算檢查，比如:
+>    ```rust
+>    assert_eq!(10_u8.checked_add(20), Some(30));
+>    assert_eq!(100_u8.checked_add(200), None);
+>    assert_eq!((-128_i8).checked_div(-1), None);
+>    ```  
+>    第三行程式碼由於i8代表數字-2<sup>7</sup>\~2<sup>7</sup>-1(-128\~127)，所以當-128除以-1正常來說是128但是無法以i8型態表示故回傳`None`
 >    #### ***Vec***  
 >    可擴展向量型態，等於C++的**std::vector**、python的**list**、Javascript的**array**  
 >    #### ***expect***  
@@ -116,7 +124,7 @@ Rust 基礎環境建構與導覽程式
 >    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 >    error: process didn't exit successfully: `target\debug\hello.exe` (exit code: 101)
 >    ```  
->4. 單元測試  
+>5. 單元測試  
 >    Rust內建簡單的測試功能，在*src/main.rs*程式碼結尾新增以下程式測試gcd函式:  
 >    ```rust
 >    #[test]
@@ -137,7 +145,7 @@ Rust 基礎環境建構與導覽程式
 >    
 >    test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 >    ```  
->5. 處理命令列引數  
+>6. 處理命令列引數  
 >    為了將命令列的引數輸入到程式內，我們先修改**main**函式:
 >    ```rust
 >    use std::str::FromStr;
@@ -170,7 +178,7 @@ Rust 基礎環境建構與導覽程式
 >       Running `target\debug\hello.exe 42 56`
 >    The greatest common divisor of [42, 56] is 14
 >    ```  
->6. 簡易網頁以及內嵌語法  
+>7. 簡易網頁以及內嵌語法  
 >    1. 首先建立新的專案  
 >        ```rust
 >        $ D:\Rust-learn> cargo new actix-gcd
