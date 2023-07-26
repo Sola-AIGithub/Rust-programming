@@ -79,7 +79,7 @@ Rust 基礎環境建構與導覽程式
 >    ```  
 >    #### ***use***  
 >    在Rust我們將標準函式庫稱做**trait**，類似python的package，我們需要將程式庫加入才可以使用裡面的函式進行開發  
->    #### ***check***  
+>    #### ***checked***  
 >    Num traits裡面有`checked_add`、`checked_sub`、`checked_mul`、`checked_div`進行運算檢查，比如:
 >    ```rust
 >    assert_eq!(10_u8.checked_add(20), Some(30));
@@ -87,6 +87,14 @@ Rust 基礎環境建構與導覽程式
 >    assert_eq!((-128_i8).checked_div(-1), None);
 >    ```  
 >    第三行程式碼由於i8代表數字-2<sup>7</sup>\~2<sup>7</sup>-1(-128\~127)，所以當-128除以-1正常來說是128但是無法以i8型態表示故回傳`None`
+>    #### ***wrapping***  
+>    Num traits裡面有`wrapping_add`、`wrapping_sub`、`wrapping_mul`進行溢位檢查，比如:  
+>    ```rust
+>    assert_eq!(100_u16.wrapping_mul(200), 20000);
+>    assert_eq!(500_u16.wrapping_mul(500), 53392);
+>    assert_eq!(127_i8.wrapping_add(1), None);
+>    assert_eq!(5_i16.wrapping_shl(17), 10);
+>    ```  
 >    #### ***Vec***  
 >    可擴展向量型態，等於C++的**std::vector**、python的**list**、Javascript的**array**  
 >    #### ***expect***  
