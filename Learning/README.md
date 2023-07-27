@@ -80,7 +80,7 @@ Rust 基礎環境建構與導覽程式
 >    #### ***use***  
 >    在Rust我們將標準函式庫稱做**trait**，類似python的package，我們需要將程式庫加入才可以使用裡面的函式進行開發  
 >    #### ***checked***  
->    Num traits裡面有`checked_add`、`checked_sub`、`checked_mul`、`checked_div`進行運算檢查，比如:
+>    整數算數於Num traits裡面有`checked_add`、`checked_sub`、`checked_mul`、`checked_div`進行運算檢查，若數學上正確結果可用該型態表示則回傳Some(value)否則為None，比如:
 >    ```rust
 >    assert_eq!(10_u8.checked_add(20), Some(30));
 >    assert_eq!(100_u8.checked_add(200), None);
@@ -88,13 +88,15 @@ Rust 基礎環境建構與導覽程式
 >    ```  
 >    第三行程式碼由於i8代表數字-2<sup>7</sup>\~2<sup>7</sup>-1(-128\~127)，所以當-128除以-1正常來說是128但是無法以i8型態表示故回傳`None`
 >    #### ***wrapping***  
->    Num traits裡面有`wrapping_add`、`wrapping_sub`、`wrapping_mul`進行溢位檢查，比如:  
+>    整數算數於Num traits裡面有`wrapping_add`、`wrapping_sub`、`wrapping_mul`進行溢位表示檢查，回傳數學上正確結果並且值會在該型態表示範圍內，比如:  
 >    ```rust
 >    assert_eq!(100_u16.wrapping_mul(200), 20000);
 >    assert_eq!(500_u16.wrapping_mul(500), 53392);
 >    assert_eq!(127_i8.wrapping_add(1), None);
 >    assert_eq!(5_i16.wrapping_shl(17), 10);
 >    ```  
+>    1. 在第二行500*500正常來說是250000但是由於u16表示型態限制，故0\~65535，65536\~131071，131072\~196607，196608\~250000前三段皆為u16表示上限，此wrapping_mul僅會表達最後一段也就是`250000-196608=53392`的數字部分  
+>    2. 同理第四行程式是逐位元移位運算，5在16位元中是`0101`(省略前面0的位元)，移動17位元則會造成溢位，故在wrapping_shl裡會直接簡化成移動1位元變成1010(也就是10)，若更改移位為14位元則溢位部份直接忽略，結果為0100(省略後面0的位元)  
 >    #### ***Vec***  
 >    可擴展向量型態，等於C++的**std::vector**、python的**list**、Javascript的**array**  
 >    #### ***expect***  
