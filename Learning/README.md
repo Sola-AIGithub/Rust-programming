@@ -78,8 +78,38 @@ Rust 基礎環境建構與導覽程式
 >    #### ***use***  
 >    在Rust我們將標準函式庫稱做**trait**，類似python的package，我們需要將程式庫加入才可以使用裡面的函式進行開發  
 >
+>    #### ***if***  
+>    ```rust
+>    if condition1 {
+>        block1
+>    } else if condition2 {
+>        block2
+>    } else {
+>        block_n
+>    }
+>    ```  
+>    和C語言相同使用方式，但是Rust有一個不一樣的用法，`if let`:  
+>    ```rust
+>    if let pattern = expr {
+>        block1
+>    } else {
+>        block2
+>    }
+>    ```  
+>    **expr**若符合**pattern**則執行`block1`，否則執行`block2`，此用法適合用於取出`Option`或`Result`。後面提到的***match***也可以做到一樣的事情，例如:  
+>    ```rust
+>    match expr {
+>        pattern => { block1 }
+>        _ => { block2 }
+>    }
+>    ```  
 >    #### ***while***  
->    與C語言不同的地方在於，條件運算式不用括號，同***if***  
+>    與C語言不同的地方在於，條件運算式不用括號，同***if***，另外**while**也具有`while let`，用途也和`if let`相同，例如:  
+>    ```rust
+>    while let pattern = expr {
+>        block
+>    }
+>    ```  
 >    #### ***loop***  
 >    待補  
 >    #### ***for***  
